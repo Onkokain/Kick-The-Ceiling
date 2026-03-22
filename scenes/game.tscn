@@ -1,0 +1,299 @@
+[gd_scene format=3 uid="uid://b2ou3jf3qkm72"]
+
+[ext_resource type="Script" uid="uid://ciwfqatfhyg3j" path="res://scripts/game.gd" id="1_uwrxv"]
+[ext_resource type="VideoStream" uid="uid://2le7sitsjk3k" path="res://assets/background_high_quality.ogv" id="2_lnu2h"]
+[ext_resource type="FontFile" uid="uid://c2gb8he1fd85l" path="res://fonts/PressStart2P-Regular.ttf" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://cl61170q75fvs" path="res://scenes/entity.tscn" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://bsyg2lyhji1fm" path="res://scenes/dustbin.tscn" id="5_iywne"]
+[ext_resource type="Script" uid="uid://dlgcywnlmy73k" path="res://scripts/game_exit_button.gd" id="6_37s47"]
+[ext_resource type="PackedScene" uid="uid://byqc7iuas7d6k" path="res://scenes/bookmark.tscn" id="6_p57ef"]
+[ext_resource type="AudioStream" uid="uid://wx8qx7xiwmb0" path="res://assets/music/bin_popping.mp3" id="7_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://bpd00mtn0stjf" path="res://scenes/coin.tscn" id="8_gee14"]
+[ext_resource type="Texture2D" uid="uid://bebu1spivun8l" path="res://assets/weapon_assets/tile040.png" id="9_1kice"]
+[ext_resource type="Script" uid="uid://d2dyokn76rg3t" path="res://scripts/weapons.gd" id="9_5newe"]
+[ext_resource type="Texture2D" uid="uid://c8gh81vwccdhh" path="res://assets/weapon_assets/tile041.png" id="10_5newe"]
+[ext_resource type="Texture2D" uid="uid://dgbi5jyi0naoa" path="res://assets/weapon_assets/tile042.png" id="11_37s47"]
+[ext_resource type="Texture2D" uid="uid://y0ubqnyumfyi" path="res://assets/weapon_assets/tile043.png" id="12_bt5mj"]
+[ext_resource type="Texture2D" uid="uid://ux6k1k25qy1n" path="res://assets/weapon_assets/tile044.png" id="13_e1j6l"]
+[ext_resource type="Texture2D" uid="uid://cwkrqpifg81jf" path="res://assets/weapon_assets/tile059.png" id="14_pl11u"]
+[ext_resource type="Texture2D" uid="uid://u67rrpnfeqd6" path="res://assets/weapon_assets/tile049.png" id="15_bhx41"]
+[ext_resource type="Texture2D" uid="uid://b2cylrexvfmpi" path="res://assets/weapon_assets/tile048.png" id="16_qnb83"]
+[ext_resource type="Texture2D" uid="uid://ctjbijug8fdil" path="res://assets/weapon_assets/tile047.png" id="17_sww3w"]
+[ext_resource type="Texture2D" uid="uid://bh7icf1frdnuy" path="res://assets/weapon_assets/tile046.png" id="18_suyxu"]
+[ext_resource type="Texture2D" uid="uid://1i30465ypx7d" path="res://assets/weapon_assets/tile045.png" id="19_sgl2t"]
+[ext_resource type="Texture2D" uid="uid://bmi2cmsqhqybc" path="res://assets/weapon_assets/tile050.png" id="20_qouja"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lbhrr"]
+normal = Vector2(-1, 0)
+distance = -20.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_iywne"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_p57ef"]
+distance = -646.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_u5sy4"]
+normal = Vector2(0, 1)
+distance = -1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1kice"]
+
+[node name="game" type="Node2D" unique_id=1521865568]
+script = ExtResource("1_uwrxv")
+coin_scene = ExtResource("8_gee14")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=1588790118]
+offset_left = -6.0
+offset_top = -37.0
+offset_right = 1274.0
+offset_bottom = 683.0
+mouse_filter = 2
+stream = ExtResource("2_lnu2h")
+volume_db = -80.0
+speed_scale = 0.05
+autoplay = true
+loop = true
+
+[node name="dustbin" parent="." unique_id=1516995715 instance=ExtResource("5_iywne")]
+position = Vector2(-117, 455)
+
+[node name="Panel" type="Panel" parent="." unique_id=1847581794]
+offset_left = 1098.0
+offset_top = 13.0
+offset_right = 1136.0
+offset_bottom = 48.0
+
+[node name="Button" type="Button" parent="." unique_id=70556755]
+offset_left = 1084.0
+offset_top = 1.0
+offset_right = 1153.0
+offset_bottom = 63.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.10141101, 0.013055671, 0.14697152, 1)
+theme_override_fonts/font = ExtResource("2_yqjtg")
+theme_override_font_sizes/font_size = 27
+text = "X"
+flat = true
+script = ExtResource("6_37s47")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=14286053]
+visible = false
+position = Vector2(-1, 0)
+
+[node name="rwall" type="CollisionShape2D" parent="StaticBody2D" unique_id=1328004503]
+position = Vector2(1131, 21)
+shape = SubResource("WorldBoundaryShape2D_lbhrr")
+
+[node name="lwall" type="CollisionShape2D" parent="StaticBody2D" unique_id=909217198]
+position = Vector2(-2, 241)
+shape = SubResource("WorldBoundaryShape2D_iywne")
+
+[node name="floor" type="CollisionShape2D" parent="StaticBody2D" unique_id=1444880576]
+shape = SubResource("WorldBoundaryShape2D_p57ef")
+
+[node name="ceiling" type="CollisionShape2D" parent="StaticBody2D" unique_id=2108392337]
+shape = SubResource("WorldBoundaryShape2D_u5sy4")
+
+[node name="entity" parent="." unique_id=1690560666 instance=ExtResource("4_lbhrr")]
+position = Vector2(145, 141)
+
+[node name="Weapons" type="Node2D" parent="." unique_id=990148024]
+
+[node name="lock" type="CharacterBody2D" parent="Weapons" unique_id=1920235464]
+scale = Vector2(2, 2)
+input_pickable = true
+script = ExtResource("9_5newe")
+
+[node name="Sprite2D" type="Sprite2D" parent="Weapons/lock" unique_id=1640736679]
+position = Vector2(288.5, 120.5)
+texture = ExtResource("9_1kice")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Weapons/lock" unique_id=570692436]
+position = Vector2(288.5, 120.5)
+shape = SubResource("CircleShape2D_1kice")
+
+[node name="bat" type="CharacterBody2D" parent="Weapons" unique_id=1099397060]
+scale = Vector2(2, 2)
+input_pickable = true
+script = ExtResource("9_5newe")
+
+[node name="Sprite2D" type="Sprite2D" parent="Weapons/bat" unique_id=512032550]
+position = Vector2(245.5, 58)
+texture = ExtResource("10_5newe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Weapons/bat" unique_id=1969145619]
+position = Vector2(245.5, 58)
+shape = SubResource("CircleShape2D_1kice")
+
+[node name="dagger" type="CharacterBody2D" parent="Weapons" unique_id=120654165]
+position = Vector2(-177, -91)
+scale = Vector2(2, 2)
+input_pickable = true
+script = ExtResource("9_5newe")
+
+[node name="Sprite2D" type="Sprite2D" parent="Weapons/dagger" unique_id=808644404]
+position = Vector2(200, 119.5)
+texture = ExtResource("11_37s47")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Weapons/dagger" unique_id=1011782647]
+position = Vector2(200, 119.5)
+shape = SubResource("CircleShape2D_1kice")
+
+[node name="cross" type="CharacterBody2D" parent="Weapons" unique_id=1657091875]
+scale = Vector2(2, 2)
+input_pickable = true
+script = ExtResource("9_5newe")
+
+[node name="Sprite2D" type="Sprite2D" parent="Weapons/cross" unique_id=386868417]
+position = Vector2(54, 184)
+texture = ExtResource("12_bt5mj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Weapons/cross" unique_id=1035306834]
+position = Vector2(54, 184)
+shape = SubResource("CircleShape2D_1kice")
+
+[node name="bone" type="CharacterBody2D" parent="Weapons" unique_id=137678365]
+scale = Vector2(2, 2)
+input_pickable = true
+script = ExtResource("9_5newe")
+
+[node name="Sprite2D" type="Sprite2D" parent="Weapons/bone" unique_id=1059868958]
+position = Vector2(182, 171.5)
+texture = ExtResource("13_e1j6l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Weapons/bone" unique_id=1293776273]
+position = Vector2(182, 171.5)
+shape = SubResource("CircleShape2D_1kice")
+
+[node name="gun" type="CharacterBody2D" parent="Weapons" unique_id=840485272]
+scale = Vector2(2, 2)
+input_pickable = true
+script = ExtResource("9_5newe")
+
+[node name="Sprite2D" type="Sprite2D" parent="Weapons/gun" unique_id=55746771]
+position = Vector2(108.5, 130.5)
+texture = ExtResource("20_qouja")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Weapons/gun" unique_id=1412581178]
+position = Vector2(108.5, 130.5)
+shape = SubResource("CircleShape2D_1kice")
+
+[node name="lock_1" type="CharacterBody2D" parent="Weapons" unique_id=557945873]
+scale = Vector2(2, 2)
+input_pickable = true
+script = ExtResource("9_5newe")
+
+[node name="Sprite2D" type="Sprite2D" parent="Weapons/lock_1" unique_id=772213516]
+position = Vector2(359.5, 70.5)
+texture = ExtResource("15_bhx41")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Weapons/lock_1" unique_id=923127255]
+position = Vector2(359.5, 70.5)
+shape = SubResource("CircleShape2D_1kice")
+
+[node name="bat_1" type="CharacterBody2D" parent="Weapons" unique_id=1972671003]
+scale = Vector2(2, 2)
+input_pickable = true
+script = ExtResource("9_5newe")
+
+[node name="Sprite2D" type="Sprite2D" parent="Weapons/bat_1" unique_id=4277463]
+position = Vector2(388, 145)
+texture = ExtResource("16_qnb83")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Weapons/bat_1" unique_id=409917017]
+position = Vector2(388, 145)
+shape = SubResource("CircleShape2D_1kice")
+
+[node name="dagger_1" type="CharacterBody2D" parent="Weapons" unique_id=21449822]
+scale = Vector2(2, 2)
+input_pickable = true
+script = ExtResource("9_5newe")
+
+[node name="Sprite2D" type="Sprite2D" parent="Weapons/dagger_1" unique_id=22060929]
+position = Vector2(486, 103)
+texture = ExtResource("17_sww3w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Weapons/dagger_1" unique_id=102192792]
+position = Vector2(486, 103)
+shape = SubResource("CircleShape2D_1kice")
+
+[node name="cross_1" type="CharacterBody2D" parent="Weapons" unique_id=747685112]
+scale = Vector2(2, 2)
+input_pickable = true
+script = ExtResource("9_5newe")
+
+[node name="Sprite2D" type="Sprite2D" parent="Weapons/cross_1" unique_id=521292841]
+position = Vector2(471.5, 178)
+texture = ExtResource("18_suyxu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Weapons/cross_1" unique_id=569208568]
+position = Vector2(471.5, 178)
+shape = SubResource("CircleShape2D_1kice")
+
+[node name="bone_1" type="CharacterBody2D" parent="Weapons" unique_id=479259304]
+scale = Vector2(2, 2)
+input_pickable = true
+script = ExtResource("9_5newe")
+
+[node name="Sprite2D" type="Sprite2D" parent="Weapons/bone_1" unique_id=899490481]
+position = Vector2(446, 51.5)
+texture = ExtResource("19_sgl2t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Weapons/bone_1" unique_id=979676337]
+position = Vector2(446, 51.5)
+shape = SubResource("CircleShape2D_1kice")
+
+[node name="gun_1" type="CharacterBody2D" parent="Weapons" unique_id=97556122]
+scale = Vector2(2, 2)
+input_pickable = true
+script = ExtResource("9_5newe")
+
+[node name="Sprite2D" type="Sprite2D" parent="Weapons/gun_1" unique_id=783683282]
+position = Vector2(200, 119.5)
+texture = ExtResource("14_pl11u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Weapons/gun_1" unique_id=663320231]
+position = Vector2(200.5, 117.5)
+shape = SubResource("CircleShape2D_1kice")
+
+[node name="Title" type="Label" parent="." unique_id=722702319]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 235.0
+offset_top = 16.0
+offset_right = 907.0
+offset_bottom = 58.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0.7921569, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(10.370252, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_yqjtg")
+theme_override_font_sizes/font_size = 42
+text = "Kick The Ceiling"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1762717595]
+position = Vector2(571, 324)
+
+[node name="bookmark" parent="." unique_id=1519173678 instance=ExtResource("6_p57ef")]
+position = Vector2(7, 574)
+
+[node name="recyclebinpopup" type="AudioStreamPlayer2D" parent="." unique_id=373704965]
+stream = ExtResource("7_u5sy4")
+bus = &"VFX"
+
+[node name="total coins" type="Label" parent="." unique_id=1499994134]
+offset_left = 922.0
+offset_top = 616.0
+offset_right = 1114.0
+offset_bottom = 640.0
+theme_override_fonts/font = ExtResource("2_yqjtg")
+theme_override_font_sizes/font_size = 24
+text = "Coins:0 "
+
+[node name="CoinSpawner" type="Timer" parent="." unique_id=1051149163]
+wait_time = 2.0
+autostart = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

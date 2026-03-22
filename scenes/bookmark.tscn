@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://byqc7iuas7d6k"]
+
+[ext_resource type="Texture2D" uid="uid://vgkjxx1pm0gx" path="res://assets/ceiling/bookmark.png" id="1_5vq3q"]
+
+[node name="bookmark" type="Area2D" unique_id=1519173678]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=289674837]
+position = Vector2(26.5, 22)
+scale = Vector2(2.65625, 2.375)
+texture = ExtResource("1_5vq3q")

@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://cl61170q75fvs"]
+
+[ext_resource type="Script" uid="uid://c82pr4gbvshb7" path="res://scripts/character_body_2d.gd" id="1_gr72c"]
+[ext_resource type="Texture2D" uid="uid://8glb3qtu6mw1" path="res://assets/ceiling/ceiling_normal.png" id="1_iiwub"]
+[ext_resource type="AudioStream" uid="uid://fke54l7wfgb4" path="res://assets/music/character_drop.mp3" id="3_m0cyi"]
+[ext_resource type="AudioStream" uid="uid://blj1nkjlo7t3m" path="res://assets/music/single_hit.mp3" id="4_51v4c"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iiwub"]
+radius = 41.000015
+height = 146.0
+
+[node name="entity" type="CharacterBody2D" unique_id=161401726]
+input_pickable = true
+script = ExtResource("1_gr72c")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1221209342]
+position = Vector2(417.31287, 287.375)
+scale = Vector2(0.3721765, 0.37217653)
+texture = ExtResource("1_iiwub")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1358215380]
+position = Vector2(417, 285)
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_iiwub")
+
+[node name="drop" type="AudioStreamPlayer2D" parent="." unique_id=289175519]
+stream = ExtResource("3_m0cyi")
+
+[node name="single hit" type="AudioStreamPlayer2D" parent="." unique_id=1386036462]
+stream = ExtResource("4_51v4c")
+volume_db = -3.0

@@ -1,0 +1,458 @@
+[gd_scene format=3 uid="uid://bb14t5bhe7j4l"]
+
+[ext_resource type="FontFile" uid="uid://c2gb8he1fd85l" path="res://fonts/PressStart2P-Regular.ttf" id="1_ouf4f"]
+[ext_resource type="Script" uid="uid://btggqxsc8fq8q" path="res://scripts/start_menu.gd" id="1_thu50"]
+[ext_resource type="Script" uid="uid://bgfejso3e0i5m" path="res://scripts/options.gd" id="3_h61rw"]
+[ext_resource type="Script" uid="uid://d1fn6clwtoqws" path="res://scripts/shop.gd" id="3_m7x51"]
+[ext_resource type="Script" uid="uid://drmvty2dat6wm" path="res://scripts/background.gd" id="5_fbjtm"]
+[ext_resource type="VideoStream" uid="uid://2le7sitsjk3k" path="res://assets/background_high_quality.ogv" id="5_fcv5n"]
+[ext_resource type="Script" uid="uid://cc6ibysmkx0a5" path="res://scripts/sound_effects.gd" id="5_trkcg"]
+[ext_resource type="Texture2D" uid="uid://bebu1spivun8l" path="res://assets/weapon_assets/tile040.png" id="6_s0oe1"]
+[ext_resource type="Texture2D" uid="uid://c8gh81vwccdhh" path="res://assets/weapon_assets/tile041.png" id="7_trkcg"]
+[ext_resource type="Texture2D" uid="uid://dgbi5jyi0naoa" path="res://assets/weapon_assets/tile042.png" id="8_fbjtm"]
+[ext_resource type="Texture2D" uid="uid://y0ubqnyumfyi" path="res://assets/weapon_assets/tile043.png" id="9_hntex"]
+[ext_resource type="Texture2D" uid="uid://ux6k1k25qy1n" path="res://assets/weapon_assets/tile044.png" id="10_mroui"]
+[ext_resource type="Texture2D" uid="uid://cwkrqpifg81jf" path="res://assets/weapon_assets/tile059.png" id="11_0lulb"]
+[ext_resource type="Texture2D" uid="uid://u67rrpnfeqd6" path="res://assets/weapon_assets/tile049.png" id="12_2o8dr"]
+[ext_resource type="Texture2D" uid="uid://b2cylrexvfmpi" path="res://assets/weapon_assets/tile048.png" id="13_3rgym"]
+[ext_resource type="Texture2D" uid="uid://ctjbijug8fdil" path="res://assets/weapon_assets/tile047.png" id="14_u1ism"]
+[ext_resource type="Texture2D" uid="uid://bh7icf1frdnuy" path="res://assets/weapon_assets/tile046.png" id="15_jjmg0"]
+[ext_resource type="Texture2D" uid="uid://1i30465ypx7d" path="res://assets/weapon_assets/tile045.png" id="16_1d3uo"]
+[ext_resource type="Texture2D" uid="uid://bmi2cmsqhqybc" path="res://assets/weapon_assets/tile050.png" id="17_hp5u2"]
+[ext_resource type="AudioStream" uid="uid://dhv1mnr2w8a07" path="res://assets/music/coin_pickup.mp3" id="20_hntex"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_thu50"]
+thickness = 8
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_m7x51"]
+color = Color(0.6188558, 0.6515176, 0.9866496, 1)
+thickness = 8
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_h61rw"]
+color = Color(0.32173944, 0.5552723, 0.9452372, 1)
+thickness = 8
+
+[node name="start_menu" type="Node2D" unique_id=1286725345]
+script = ExtResource("1_thu50")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=1830485831]
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 1281.0
+offset_bottom = 719.0
+stream = ExtResource("5_fcv5n")
+volume_db = -80.0
+speed_scale = 0.05
+autoplay = true
+loop = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=467474898]
+visible = false
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 56.0
+offset_top = 142.0
+offset_right = 1094.0
+offset_bottom = 600.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="new_game" type="Button" parent="VBoxContainer" unique_id=1101225459]
+custom_minimum_size = Vector2(100, 150)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ouf4f")
+theme_override_font_sizes/font_size = 30
+text = "New Game"
+
+[node name="options" type="Button" parent="VBoxContainer" unique_id=1929374204]
+custom_minimum_size = Vector2(100, 150)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ouf4f")
+theme_override_font_sizes/font_size = 30
+text = "Options"
+
+[node name="shop" type="Button" parent="VBoxContainer" unique_id=1020888107]
+custom_minimum_size = Vector2(100, 150)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ouf4f")
+theme_override_font_sizes/font_size = 30
+text = "Weapons
+"
+
+[node name="Title" type="Label" parent="." unique_id=1663002604]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 60.0
+offset_top = 42.0
+offset_right = 732.0
+offset_bottom = 84.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0.7921569, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(10.370252, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_ouf4f")
+theme_override_font_sizes/font_size = 42
+text = "Kick The Ceiling"
+
+[node name="Options" type="Panel" parent="." unique_id=651785256]
+offset_left = 60.0
+offset_top = 106.0
+offset_right = 1098.0
+offset_bottom = 564.0
+script = ExtResource("3_h61rw")
+
+[node name="Background" type="HSlider" parent="Options" unique_id=1399029834]
+layout_mode = 0
+offset_left = 364.0
+offset_top = 201.0
+offset_right = 1008.0
+offset_bottom = 280.0
+theme_override_styles/slider = SubResource("StyleBoxLine_thu50")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_m7x51")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_h61rw")
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("5_fbjtm")
+audio_bus_name = "Background"
+
+[node name="Sound Effects" type="HSlider" parent="Options" unique_id=1785477439]
+layout_mode = 0
+offset_left = 364.0
+offset_top = 265.0
+offset_right = 1008.0
+offset_bottom = 344.0
+theme_override_styles/slider = SubResource("StyleBoxLine_thu50")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_m7x51")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_h61rw")
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("5_trkcg")
+audio_bus_name = "VFX"
+
+[node name="options" type="Label" parent="Options" unique_id=192056690]
+custom_minimum_size = Vector2(100, 150)
+layout_mode = 0
+offset_left = 392.0
+offset_top = 100.0
+offset_right = 672.0
+offset_bottom = 250.0
+theme_override_fonts/font = ExtResource("1_ouf4f")
+theme_override_font_sizes/font_size = 40
+text = "Options"
+
+[node name="close_options" type="Button" parent="Options" unique_id=1186321012]
+layout_mode = 0
+offset_left = 966.0
+offset_right = 1038.0
+offset_bottom = 74.0
+theme_override_fonts/font = ExtResource("1_ouf4f")
+theme_override_font_sizes/font_size = 25
+text = "X"
+
+[node name="Bg" type="Label" parent="Options" unique_id=1753269538]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 231.0
+offset_right = 293.0
+offset_bottom = 254.0
+theme_override_fonts/font = ExtResource("1_ouf4f")
+theme_override_font_sizes/font_size = 20
+text = "Background Music"
+
+[node name="visuals" type="Label" parent="Options" unique_id=1113766031]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 347.0
+offset_right = 357.0
+offset_bottom = 370.0
+theme_override_fonts/font = ExtResource("1_ouf4f")
+theme_override_font_sizes/font_size = 20
+text = "Recycle Bin"
+
+[node name="vfx" type="Label" parent="Options" unique_id=1602933003]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 292.0
+offset_right = 245.0
+offset_bottom = 315.0
+theme_override_fonts/font = ExtResource("1_ouf4f")
+theme_override_font_sizes/font_size = 20
+text = "Sound Effects"
+
+[node name="OptionButton" type="OptionButton" parent="Options" unique_id=1148611196]
+layout_mode = 0
+offset_left = 363.0
+offset_top = 341.0
+offset_right = 521.0
+offset_bottom = 372.0
+theme_override_fonts/font = ExtResource("1_ouf4f")
+selected = 0
+item_count = 2
+popup/item_0/text = "Enabled"
+popup/item_0/id = 0
+popup/item_1/text = "Disabled"
+popup/item_1/id = 1
+
+[node name="Shop" type="Panel" parent="." unique_id=1759713479]
+visible = false
+offset_left = 60.0
+offset_top = 106.0
+offset_right = 1098.0
+offset_bottom = 564.0
+script = ExtResource("3_m7x51")
+
+[node name="close_settings" type="Button" parent="Shop" unique_id=574042875]
+layout_mode = 0
+offset_left = 966.0
+offset_right = 1038.0
+offset_bottom = 74.0
+theme_override_fonts/font = ExtResource("1_ouf4f")
+theme_override_font_sizes/font_size = 25
+text = "X"
+
+[node name="shop" type="Label" parent="Shop" unique_id=720819816]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 0
+offset_left = 429.0
+offset_top = 27.0
+offset_right = 617.0
+offset_bottom = 86.0
+theme_override_fonts/font = ExtResource("1_ouf4f")
+theme_override_font_sizes/font_size = 47
+text = "Weapons
+"
+
+[node name="Panels" type="Node2D" parent="Shop" unique_id=518275761]
+
+[node name="Panel" type="Panel" parent="Shop/Panels" unique_id=1475642258]
+offset_left = 209.0
+offset_top = 144.0
+offset_right = 301.0
+offset_bottom = 227.0
+
+[node name="Panel2" type="Panel" parent="Shop/Panels" unique_id=467936075]
+offset_left = 311.0
+offset_top = 144.0
+offset_right = 403.0
+offset_bottom = 227.0
+
+[node name="Panel3" type="Panel" parent="Shop/Panels" unique_id=1447248446]
+offset_left = 413.0
+offset_top = 144.0
+offset_right = 505.0
+offset_bottom = 227.0
+
+[node name="Panel4" type="Panel" parent="Shop/Panels" unique_id=971255986]
+offset_left = 516.0
+offset_top = 144.0
+offset_right = 608.0
+offset_bottom = 227.0
+
+[node name="Panel5" type="Panel" parent="Shop/Panels" unique_id=1873384272]
+offset_left = 619.0
+offset_top = 144.0
+offset_right = 711.0
+offset_bottom = 227.0
+
+[node name="Panel6" type="Panel" parent="Shop/Panels" unique_id=992738824]
+offset_left = 720.0
+offset_top = 144.0
+offset_right = 812.0
+offset_bottom = 227.0
+
+[node name="Panel7" type="Panel" parent="Shop/Panels" unique_id=705622779]
+offset_left = 209.0
+offset_top = 292.0
+offset_right = 301.0
+offset_bottom = 375.0
+
+[node name="Panel8" type="Panel" parent="Shop/Panels" unique_id=1364370272]
+offset_left = 311.0
+offset_top = 292.0
+offset_right = 403.0
+offset_bottom = 375.0
+
+[node name="Panel9" type="Panel" parent="Shop/Panels" unique_id=825387848]
+offset_left = 413.0
+offset_top = 292.0
+offset_right = 505.0
+offset_bottom = 375.0
+
+[node name="Panel10" type="Panel" parent="Shop/Panels" unique_id=719053266]
+offset_left = 516.0
+offset_top = 292.0
+offset_right = 608.0
+offset_bottom = 375.0
+
+[node name="Panel11" type="Panel" parent="Shop/Panels" unique_id=1098696748]
+offset_left = 619.0
+offset_top = 292.0
+offset_right = 711.0
+offset_bottom = 375.0
+
+[node name="Panel12" type="Panel" parent="Shop/Panels" unique_id=823523789]
+offset_left = 720.0
+offset_top = 292.0
+offset_right = 812.0
+offset_bottom = 375.0
+
+[node name="Buttons" type="Node2D" parent="Shop" unique_id=928342120]
+
+[node name="lock" type="TextureButton" parent="Shop/Buttons" unique_id=229684141]
+custom_minimum_size = Vector2(64, 64)
+offset_left = 188.0
+offset_top = 122.0
+offset_right = 252.0
+offset_bottom = 186.0
+scale = Vector2(2, 2)
+keep_pressed_outside = true
+texture_normal = ExtResource("6_s0oe1")
+texture_pressed = ExtResource("6_s0oe1")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="bat" type="TextureButton" parent="Shop/Buttons" unique_id=1166574436]
+offset_left = 256.0
+offset_top = 85.0
+offset_right = 356.0
+offset_bottom = 187.0
+scale = Vector2(2, 2)
+keep_pressed_outside = true
+texture_normal = ExtResource("7_trkcg")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="dagger" type="TextureButton" parent="Shop/Buttons" unique_id=886128049]
+offset_left = 415.0
+offset_top = 146.0
+offset_right = 458.5
+offset_bottom = 189.97
+scale = Vector2(2, 2)
+keep_pressed_outside = true
+texture_normal = ExtResource("8_fbjtm")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="cross" type="TextureButton" parent="Shop/Buttons" unique_id=596350740]
+offset_left = 523.0
+offset_top = 153.0
+offset_right = 560.0
+offset_bottom = 188.0
+scale = Vector2(2, 2)
+keep_pressed_outside = true
+texture_normal = ExtResource("9_hntex")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="bone" type="TextureButton" parent="Shop/Buttons" unique_id=2026360693]
+offset_left = 621.0
+offset_top = 147.0
+offset_right = 663.5
+offset_bottom = 185.0
+scale = Vector2(2, 2)
+keep_pressed_outside = true
+texture_normal = ExtResource("10_mroui")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="gun" type="TextureButton" parent="Shop/Buttons" unique_id=687043334]
+offset_left = 718.0
+offset_top = 147.0
+offset_right = 763.0
+offset_bottom = 187.0
+scale = Vector2(2, 2)
+keep_pressed_outside = true
+texture_normal = ExtResource("11_0lulb")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="lock_1" type="TextureButton" parent="Shop/Buttons" unique_id=105833306]
+offset_left = 209.0
+offset_top = 291.0
+offset_right = 250.0
+offset_bottom = 336.5
+scale = Vector2(2, 2)
+keep_pressed_outside = true
+texture_normal = ExtResource("12_2o8dr")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="bat_1" type="TextureButton" parent="Shop/Buttons" unique_id=1886797831]
+offset_left = 310.0
+offset_top = 288.0
+offset_right = 354.0
+offset_bottom = 331.5
+scale = Vector2(2, 2)
+keep_pressed_outside = true
+texture_normal = ExtResource("13_3rgym")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="dagger_1" type="TextureButton" parent="Shop/Buttons" unique_id=826519157]
+offset_left = 417.0
+offset_top = 292.0
+offset_right = 457.0
+offset_bottom = 334.0
+scale = Vector2(2, 2)
+keep_pressed_outside = true
+texture_normal = ExtResource("14_u1ism")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="cross_1" type="TextureButton" parent="Shop/Buttons" unique_id=1309382582]
+offset_left = 519.0
+offset_top = 294.0
+offset_right = 558.5
+offset_bottom = 335.0
+scale = Vector2(2, 2)
+keep_pressed_outside = true
+texture_normal = ExtResource("15_jjmg0")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="bone_1" type="TextureButton" parent="Shop/Buttons" unique_id=1878719753]
+offset_left = 625.0
+offset_top = 294.0
+offset_right = 662.0
+offset_bottom = 331.74
+scale = Vector2(2, 2)
+keep_pressed_outside = true
+texture_normal = ExtResource("16_1d3uo")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="gun_1" type="TextureButton" parent="Shop/Buttons" unique_id=710177386]
+offset_left = 731.0
+offset_top = 293.0
+offset_right = 768.5
+offset_bottom = 333.0
+scale = Vector2(2, 2)
+keep_pressed_outside = true
+texture_normal = ExtResource("17_hp5u2")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="coins" type="Label" parent="." unique_id=1658481433]
+offset_left = 916.0
+offset_top = 51.0
+offset_right = 1105.0
+offset_bottom = 78.0
+theme_override_fonts/font = ExtResource("1_ouf4f")
+theme_override_font_sizes/font_size = 27
+text = "0 Coins"
+
+[node name="sound" type="AudioStreamPlayer2D" parent="." unique_id=982937221]
+stream = ExtResource("20_hntex")
+
+[connection signal="pressed" from="VBoxContainer/new_game" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="VBoxContainer/options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="VBoxContainer/shop" to="." method="_on_shop_pressed"]
+[connection signal="value_changed" from="Options/Background" to="Options/Background" method="_on_value_changed"]
+[connection signal="value_changed" from="Options/Sound Effects" to="Options/Sound Effects" method="_on_value_changed"]
+[connection signal="pressed" from="Options/close_options" to="." method="_on_close_options_pressed"]
+[connection signal="pressed" from="Shop/close_settings" to="." method="_on_close_settings_pressed"]

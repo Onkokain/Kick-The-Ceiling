@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://bsyg2lyhji1fm"]
+
+[ext_resource type="Texture2D" uid="uid://d1md44xpr43qk" path="res://assets/ceiling/dustbin.png" id="1_iv6r6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xfbvn"]
+atlas = ExtResource("1_iv6r6")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rq6m0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xfbvn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iwfwv"]
+radius = 28.0
+height = 68.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_iv6r6"]
+radius = 175.55911
+
+[node name="dustbin" type="Area2D" unique_id=372050520]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1572708652]
+position = Vector2(166, 144)
+scale = Vector2(2.4375, 2.1875)
+sprite_frames = SubResource("SpriteFrames_rq6m0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=776344474]
+position = Vector2(167, 143)
+shape = SubResource("CapsuleShape2D_iwfwv")
+
+[node name="DetectionArea" type="Area2D" parent="." unique_id=731056975]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=283260986]
+position = Vector2(165, 140)
+shape = SubResource("CircleShape2D_iv6r6")

@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://bpd00mtn0stjf"]
+
+[ext_resource type="Script" uid="uid://bv475e2xgh22" path="res://scripts/coin.gd" id="1_rwqht"]
+[ext_resource type="Texture2D" uid="uid://dikjums7u0jx7" path="res://assets/ceiling/coinset.png" id="2_i64fm"]
+[ext_resource type="AudioStream" uid="uid://dhv1mnr2w8a07" path="res://assets/music/coin_pickup.mp3" id="3_11l1o"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i64fm"]
+radius = 18.248287
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11l1o"]
+atlas = ExtResource("2_i64fm")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d14el"]
+atlas = ExtResource("2_i64fm")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ikuy"]
+atlas = ExtResource("2_i64fm")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wnlwo"]
+atlas = ExtResource("2_i64fm")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jig8b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_11l1o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d14el")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ikuy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wnlwo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_11l1o"]
+radius = 27.0
+
+[node name="coin" type="Node2D" unique_id=670858672]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1436748237]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_rwqht")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1457076675]
+position = Vector2(392, 328)
+scale = Vector2(0.9999999, 1)
+shape = SubResource("CircleShape2D_i64fm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=383114299]
+position = Vector2(396, 320)
+scale = Vector2(1.7187496, 1.8142359)
+sprite_frames = SubResource("SpriteFrames_jig8b")
+autoplay = "default"
+frame_progress = 0.22123745
+
+[node name="PickupArea" type="Area2D" parent="CharacterBody2D" unique_id=386134152]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/PickupArea" unique_id=1774205485]
+position = Vector2(391, 327)
+shape = SubResource("CircleShape2D_11l1o")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=877454800]
+stream = ExtResource("3_11l1o")
+volume_db = 12.806
